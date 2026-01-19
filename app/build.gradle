@@ -1,0 +1,59 @@
+```groovy
+// Apply the Android application plugin to enable Android-specific features
+plugins {
+    id 'com.android.application'
+}
+
+// Configuration block for the Android application
+android {
+    compileSdk 33 // Uses the latest Android SDK for compatibility and performance improvements
+
+    defaultConfig {
+        applicationId "com.madhub.instagramfollowerbot" // Unique identifier for the application
+        minSdk 21 // Minimum SDK version supported by the application
+        targetSdk 33 // Target SDK version for optimizing functionality on latest devices
+        versionCode 1 // Application version code for updates
+        versionName "1.0.0" // User-facing version name
+        resConfigs "en" // Specifies the supported language configurations
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false // Disables code shrinking
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' // Configuration for ProGuard
+        }
+    }
+}
+
+// Dependency management block for the application
+dependencies {
+    // AndroidX libraries for improved backward compatibility and feature enhancements
+    implementation 'androidx.appcompat:appcompat:1.6.1' // This powerful dependency enables support for material design components
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // Comprehensive capability for layout management
+
+    // Retrofit for network operations, ideal for managing automated interaction with social media platforms
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0' // This library allows for easy HTTP requests and responses
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0' // Provides JSON conversion capabilities for easier data handling
+
+    // Room for local database management, enabling efficient data storage and retrieval
+    implementation 'androidx.room:room-runtime:2.5.0' // This dependency enables powerful local database functionalities
+    annotationProcessor 'androidx.room:room-compiler:2.5.0' // Required for Room database annotations processing
+
+    // ViewModel and LiveData for managing UI-related data in a lifecycle-conscious way
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1' // This library supports scalable architecture for your application
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1' // Enables responsive UI updates based on data changes
+
+    // Dependency for Kotlin Coroutines to handle asynchronous tasks smoothly, ensuring efficient background operations
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3' // Flexible configuration option for asynchronous programming
+
+    // This powerful dependency enables image loading and caching for better performance in media display
+    implementation 'com.github.bumptech.glide:glide:4.15.1' // Essential for loading images efficiently
+
+    // Testing libraries to ensure application quality and stability
+    testImplementation 'junit:junit:4.13.2' // Library for unit testing
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5' // Enables testing Android components
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1' // This library helps with UI testing
+}
+
+// MadHub integrates seamlessly across various Android platforms, supporting real devices, cloud phones, or emulators for 24/7 automated operations. This setup allows for robust social media management, content scheduling, and effective account management without the need for complex coding, making it a highly flexible and user-friendly solution.
+```
