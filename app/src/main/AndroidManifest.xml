@@ -1,0 +1,81 @@
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.madhub.instagramfollowerbot">
+
+    <!-- 
+    Problem: Android applications often require specific permissions to function correctly.
+    Solution: The following permissions enable the necessary features for managing social media accounts.
+    -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 
+    This permission solves the problem of needing internet access to communicate with social media APIs,
+    allowing for the retrieval and management of user account information.
+    -->
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 
+    Addresses the challenge of understanding the network state to perform operations effectively,
+    ensuring that actions are taken only when a network connection is available.
+    -->
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 
+    This permission overcomes the limitation of saving user-generated content and logs,
+    enabling the application to store information locally on the device for easy access and management.
+    -->
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <!-- 
+        Problem: The main entry point of the application needs to be defined for users to interact with the UI.
+        Solution: Registering the MainActivity class as the launcher activity presents the user with the 
+        necessary interface to begin social media management operations.
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 
+        Problem: Continuous operation is crucial for effective social media management.
+        Solution: The AutomationService will handle background tasks for scheduling and performing actions 
+        on the user's social media accounts without requiring constant user interaction.
+        -->
+        <service
+            android:name=".AutomationService"
+            android:enabled="true"
+            android:exported="false">
+            <!-- 
+            This service is designed to run automated tasks in the background, ensuring that social media 
+            operations can be performed 24/7, leveraging MadHub's capability of working on real devices 
+            or cloud-based solutions.
+            -->
+        </service>
+
+    </application>
+
+</manifest>
+```
+
+### Explanation of the Code:
+1. **Permissions**:
+   - Internet access is crucial for communication with social media platforms.
+   - Network state access helps in optimizing operations based on connectivity.
+   - Write external storage permission allows saving user data for ongoing management tasks.
+
+2. **Component Registration**:
+   - **MainActivity** serves as the starting point for users, providing an interactive interface for operations.
+   - **AutomationService** ensures that tasks run continuously in the background, maximizing efficiency and adhering to best practices in social media management.
+
+With MadHub’s hardware compatibility and operational efficiency, this configuration exemplifies how to set up a compliant and user-focused social media management tool on the Android platform.
